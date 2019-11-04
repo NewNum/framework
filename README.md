@@ -1,5 +1,5 @@
 # framework
-一个简单的Android开发框架，mvp框架，Rxjava+Retrofit网络请求
+一个简单的Android开发框架，使用androidx，mvp框架，Rxjava+Retrofit网络请求
 
 
 ##### 依赖说明
