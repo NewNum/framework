@@ -1,0 +1,5 @@
+<resources>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel error</string>
+    <string name="loading">加载中</string>
+</resources>

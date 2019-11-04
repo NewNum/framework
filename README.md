@@ -13,8 +13,11 @@
 > [retrofit](https://github.com/square/retrofit) \
 > [converter-gson](https://github.com/square/retrofit/tree/master/retrofit-converters) \
 > [adapter-rxjava2](https://github.com/square/retrofit/tree/master/retrofit-adapters) \
-> [PersistentCookieJar](https://github.com/franmontiel/PersistentCookieJar) \
 > [immersionbar](https://github.com/gyf-dev/ImmersionBar) \
+> [Glide](https://github.com/bumptech/glide) \
+> [permission](https://github.com/yanzhenjie/AndPermission) \
+> [SwipeRecyclerView](https://github.com/yanzhenjie/SwipeRecyclerView) \
+> [屏幕是配方案-AndroidAutoSize](https://github.com/JessYanCoding/AndroidAutoSize) \
 > [toast](https://github.com/getActivity/ToastUtils) 
 
 ##### [License](./LICENSE)

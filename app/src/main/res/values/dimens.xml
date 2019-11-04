@@ -7,4 +7,8 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="item_tv_author">12sp</dimen>
     <dimen name="item_title_size">16sp</dimen>
+    <dimen name="status_bar_height">24dp</dimen>
+    <dimen name="shade_height">10dp</dimen>
+    <dimen name="default_elevation">0dp</dimen>
+    <dimen name="default_radius">10dp</dimen>
 </resources>

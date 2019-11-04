@@ -11,3 +11,8 @@ android {
         versionName "5.6"
     }
 }
+
+dependencies {
+    implementation "androidx.appcompat:appcompat:${appcompat_version}"
+
+}
