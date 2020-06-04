@@ -1,1 +1,2 @@
-include ':toast', ':app',':mvp'
+//include ':toast', ':app',':mvp'
+include ':mvvmdemo'
