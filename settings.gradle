@@ -1,2 +1,2 @@
 //include ':toast', ':app',':mvp'
-include ':mvvmdemo'
+include ':mvvmdemo', ':LaunchStarter'

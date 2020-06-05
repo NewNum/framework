@@ -10,6 +10,9 @@ import com.huxh.mvvmdemo.utils.toast
 
 abstract class BaseViewModelFragment : BaseFragment() {
 
+    protected abstract val viewModel: BaseViewModel
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initViewModelAction()
@@ -17,7 +20,7 @@ abstract class BaseViewModelFragment : BaseFragment() {
 
 
     private fun initViewModelAction() {
-        this.getViewModel().let { baseViewModel ->
+        viewModel.let { baseViewModel ->
             baseViewModel.mStateLiveData.observe(this, Observer { stateActionState ->
                 when (stateActionState) {
                     LoadState -> showLoading()
@@ -36,5 +39,4 @@ abstract class BaseViewModelFragment : BaseFragment() {
 
     open fun handleError() {}
 
-    abstract fun getViewModel(): BaseViewModel
 }

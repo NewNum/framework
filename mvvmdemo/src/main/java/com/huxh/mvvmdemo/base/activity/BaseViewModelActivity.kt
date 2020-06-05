@@ -9,9 +9,10 @@ import com.huxh.mvvmdemo.utils.toast
 
 abstract class BaseViewModelActivity : BaseActivity() {
 
+    protected abstract val viewModel: BaseViewModel
 
     protected fun initViewModelAction() {
-        getViewModel().let { baseViewModel ->
+        viewModel.let { baseViewModel ->
             baseViewModel.mStateLiveData.observe(this, Observer { stateActionState ->
                 when (stateActionState) {
                     LoadState -> showLoading()
@@ -37,6 +38,5 @@ abstract class BaseViewModelActivity : BaseActivity() {
 
     open fun handleError() {}
 
-    abstract fun getViewModel(): BaseViewModel
 
 }
