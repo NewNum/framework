@@ -13,6 +13,5 @@ android {
 }
 
 dependencies {
-    implementation "androidx.appcompat:appcompat:${appcompat_version}"
-
+    implementation project(':baseLib')
 }

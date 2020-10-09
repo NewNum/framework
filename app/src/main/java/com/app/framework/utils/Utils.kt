@@ -8,8 +8,11 @@ import android.net.Uri
 import android.util.DisplayMetrics
 import android.view.WindowManager
 import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
 import java.text.DecimalFormat
 import java.util.*
@@ -158,29 +161,32 @@ fun isAppInstalled(context: Context, packageName: String): Boolean {
 
 
 fun convertToRequestBody(param: String): RequestBody {
-    return RequestBody.create(MediaType.parse("text/plain"), param)
+    return param.toRequestBody("text/plain".toMediaTypeOrNull())
 }
 
 fun convertToRequestBody(params: Map<String, String>): Map<String, RequestBody> {
     val map = mutableMapOf<String, RequestBody>()
-    params.keys.forEach {
-        map[it] = RequestBody.create(MediaType.parse("text/plain"), params[it])
+    params.keys.forEach { key ->
+        params[key]?.let {
+            map[key] = it.toRequestBody("text/plain".toMediaTypeOrNull())
+        }
     }
     return map
 }
 
 
 fun fileToMultipartBodyParts(param: String, file: File): MultipartBody.Part {
-    val requestBody = RequestBody.create(MediaType.parse("image/*"), file)
+    val requestBody = file.asRequestBody("image/*".toMediaTypeOrNull())
     return MultipartBody.Part.createFormData(param, file.name, requestBody)
 }
 
 fun fileToMultipartBodyParts(params: Map<String, File>): List<MultipartBody.Part> {
     val list = mutableListOf<MultipartBody.Part>()
-    params.keys.forEach {
-        val file = params[it]
-        val requestBody = RequestBody.create(MediaType.parse("image/*"), file)
-        list.add(MultipartBody.Part.createFormData(it, file?.name, requestBody))
+    params.keys.forEach { key ->
+        params[key]?.let {
+            val requestBody = it.asRequestBody("image/*".toMediaTypeOrNull())
+            list.add(MultipartBody.Part.createFormData(key, it.name, requestBody))
+        }
     }
     return list
 }
