@@ -136,7 +136,7 @@ fun copyToClipboard(context: Context, copyStr: String?): Boolean {
         // 创建普通字符型ClipData
         val mClipData = ClipData.newPlainText("Label", copyStr)
         // 将ClipData内容放到系统剪贴板里。
-        cm.setPrimaryClip(mClipData)
+        cm.primaryClip = mClipData
         true
     } catch (e: Exception) {
         false
@@ -194,9 +194,9 @@ fun fileToMultipartBodyParts(params: Map<String, File>): List<MultipartBody.Part
 
 fun isSameDay(date1: Date, date2: Date): Boolean {
     val cal1 = Calendar.getInstance()
-    cal1.setTime(date1)
+    cal1.time = date1
     val cal2 = Calendar.getInstance()
-    cal2.setTime(date2)
+    cal2.time = date2
     return isSameDay(cal1, cal2)
 }
 

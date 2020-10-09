@@ -39,9 +39,7 @@ abstract class BaseObserver<T> : ResourceObserver<BaseResponse<T>> {
         this.mView = view
     }
 
-    protected constructor() {
-
-    }
+    protected constructor()
 
     protected constructor(errorMsg: String) {
         this.mErrorMsg = errorMsg

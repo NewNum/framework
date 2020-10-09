@@ -108,7 +108,7 @@ class ViewSource(view: View) : Source<View>(view) {
         val focusView = hostView.findFocus()
         if (focusView != null) {
             val manager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            manager?.hideSoftInputFromWindow(focusView.windowToken, 0)
+            manager.hideSoftInputFromWindow(focusView.windowToken, 0)
         }
     }
 

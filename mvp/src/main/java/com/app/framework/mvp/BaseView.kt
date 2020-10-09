@@ -57,9 +57,9 @@ abstract class BaseView<Presenter : BasePresenter> : LayoutContainer {
     val resources: Resources
         get() = context.resources
 
-    constructor(activity: AppCompatActivity, presenter: Presenter) : this(ActivitySource(activity), presenter) {}
+    constructor(activity: AppCompatActivity, presenter: Presenter) : this(ActivitySource(activity), presenter)
 
-    constructor(view: View, presenter: Presenter) : this(ViewSource(view), presenter) {}
+    constructor(view: View, presenter: Presenter) : this(ViewSource(view), presenter)
 
     private constructor(source: Source<*>, presenter: Presenter) {
         this.mSource = source
@@ -164,7 +164,7 @@ abstract class BaseView<Presenter : BasePresenter> : LayoutContainer {
     fun openInputMethod(view: View) {
         view.requestFocus()
         val manager = view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        manager?.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
+        manager.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
     }
 
     fun closeInputMethod() {
@@ -322,7 +322,7 @@ abstract class BaseView<Presenter : BasePresenter> : LayoutContainer {
     fun showLoading(message: String) {
         val view = LayoutInflater.from(context).inflate(R.layout.loading_progressbar, null, false)
         val loadingText = view.findViewById<TextView>(R.id.loading_text)
-        loadingText.setText(message)
+        loadingText.text = message
         progressdialog = AlertDialog.Builder(context).setView(view).create()
         Objects.requireNonNull(progressdialog?.window)?.setBackgroundDrawableResource(android.R.color.transparent)
         if (!progressdialog!!.isShowing) {
